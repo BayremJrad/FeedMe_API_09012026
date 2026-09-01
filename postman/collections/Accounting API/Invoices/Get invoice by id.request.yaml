@@ -5,7 +5,21 @@ method: GET
 headers:
   Accept: application/json
 pathVariables:
-  invoiceId: ""
+  invoiceId: '{{invoiceId}}'
 settings: {}
 examples: ./.resources/Get invoice by id.resources/examples
 order: 2000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", () => pm.response.to.have.status(200));
+      pm.test("Response has full invoice fields", () => {
+        const body = pm.response.json();
+        pm.expect(body).to.have.property("id");
+        pm.expect(body).to.have.property("invoiceNumber");
+        pm.expect(body).to.have.property("customerId");
+        pm.expect(body).to.have.property("lineItems");
+        pm.expect(body).to.have.property("total");
+        pm.expect(body).to.have.property("status");
+      });

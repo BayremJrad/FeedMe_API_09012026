@@ -11,3 +11,18 @@ body:
 settings: {}
 examples: ./.resources/Create invoice.resources/examples
 order: 3000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", () => pm.response.to.have.status(201));
+      pm.test("Response has invoice fields", () => {
+        const body = pm.response.json();
+        pm.expect(body).to.have.property("id");
+        pm.expect(body).to.have.property("invoiceNumber");
+        pm.expect(body).to.have.property("customerId");
+        pm.expect(body).to.have.property("status");
+        pm.expect(body).to.have.property("total");
+      });
+      const id = pm.response.json().id;
+      if (id) pm.collectionVariables.set("invoiceId", id);
