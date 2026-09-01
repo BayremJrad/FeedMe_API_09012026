@@ -1,0 +1,28 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/invoices"
+  method: GET
+  headers:
+    Accept: application/json
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": "inv_1001",
+          "customerId": "cust_001",
+          "invoiceNumber": "INV-1001",
+          "currency": "USD",
+          "total": 1250,
+          "status": "open"
+        }
+      ]
+order: 1000

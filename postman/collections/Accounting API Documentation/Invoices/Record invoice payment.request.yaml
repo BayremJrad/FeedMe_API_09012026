@@ -1,0 +1,72 @@
+$kind: http-request
+description: |-
+  Records a payment made against a specific invoice, reducing its outstanding balance.
+
+  **Method:** `POST`  
+  **URL:** `{{baseUrl}}/invoices/:invoiceId/payments`  
+  **Content-Type:** `application/json`
+
+  ## Path Variables
+
+  | Variable | Description |
+  |----------|-------------|
+  | `invoiceId` | The unique ID of the invoice to record a payment for. Defaults to `{{invoiceId}}` collection variable. |
+
+  ## Request Body
+
+  | Field | Type | Required | Description |
+  |-------|------|----------|-------------|
+  | `amount` | number | ✅ | Payment amount in the invoice's currency |
+  | `paymentDate` | string | ✅ | Date of payment in `YYYY-MM-DD` format |
+  | `method` | string | ✅ | Payment method (e.g. `"bank_transfer"`, `"credit_card"`, `"cash"`) |
+  | `reference` | string | ❌ | Optional reference number or transaction ID |
+
+  **Example:**
+  ```json
+  {
+    "amount": 500,
+    "paymentDate": "2026-01-20",
+    "method": "bank_transfer",
+    "reference": "BT-7781"
+  }
+  ```
+
+  ## Response
+
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | `id` | string | Unique payment record identifier |
+  | `invoiceId` | string | ID of the invoice this payment is applied to |
+  | `amount` | number | Payment amount |
+  | `method` | string | Payment method used |
+
+  **Success status:** `201 Created`
+
+  ## Tests
+  - Verifies response status is `201`
+  - Verifies response body contains `id`, `invoiceId`, `amount`, and `method` fields
+url: "{{baseUrl}}/invoices/:invoiceId/payments"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  invoiceId: '{{invoiceId}}'
+body:
+  type: json
+  content: '{"amount":500,"paymentDate":"2026-01-20","method":"bank_transfer","reference":"BT-7781"}'
+settings: {}
+examples: ./.resources/Record invoice payment.resources/examples
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", () => pm.response.to.have.status(201));
+      pm.test("Response has payment fields", () => {
+        const body = pm.response.json();
+        pm.expect(body).to.have.property("id");
+        pm.expect(body).to.have.property("invoiceId");
+        pm.expect(body).to.have.property("amount");
+        pm.expect(body).to.have.property("method");
+      });

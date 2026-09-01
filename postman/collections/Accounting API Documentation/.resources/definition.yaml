@@ -1,0 +1,44 @@
+$kind: collection
+name: Accounting API Documentation
+description: |-
+  # Accounting API
+
+  A minimal HTTP REST API for a basic accounting application. This collection covers the full lifecycle of accounting operations — from customer management to invoice creation and payment recording.
+
+  ## Base URL
+
+  All requests use the `{{baseUrl}}` environment variable. Set this in the **Accounting API Base** environment before running requests.
+
+  ## Resources
+
+  | Resource | Description |
+  |----------|-------------|
+  | **Health** | Service health check endpoint |
+  | **Customers** | Create and list customer records |
+  | **Invoices** | Create, retrieve, and list invoices |
+  | **Payments** | Record payments against invoices and list all payments |
+
+  ## Workflow
+
+  A typical end-to-end workflow follows this order:
+
+  1. **Check health** — `GET /health` to confirm the service is running
+  2. **Create a customer** — `POST /customers` (saves `customerId` variable automatically)
+  3. **Create an invoice** — `POST /invoices` using `{{customerId}}` (saves `invoiceId` variable automatically)
+  4. **Record a payment** — `POST /invoices/:invoiceId/payments` using `{{invoiceId}}`
+  5. **List invoices / payments** — verify records via `GET /invoices` and `GET /payments`
+
+  ## Variables
+
+  | Variable | Set by | Used in |
+  |----------|--------|---------|
+  | `baseUrl` | Environment | All requests |
+  | `customerId` | Create customer (auto) | Create invoice |
+  | `invoiceId` | Create invoice (auto) | Get invoice, Record payment |
+
+  ## Authentication
+
+  This API does not require authentication in its current form.
+variables:
+  customerId: ""
+  invoiceId: ""

@@ -1,0 +1,64 @@
+$kind: http-request
+description: |-
+  Creates a new customer record in the accounting system.
+
+  **Method:** `POST`  
+  **URL:** `{{baseUrl}}/customers`  
+  **Content-Type:** `application/json`
+
+  ## Request Body
+
+  | Field | Type | Required | Description |
+  |-------|------|----------|-------------|
+  | `name` | string | ✅ | Full name or business name of the customer |
+  | `email` | string | ✅ | Contact email address for the customer |
+
+  **Example:**
+  ```json
+  {
+    "name": "Acme Bakery",
+    "email": "owner@acmebakery.test"
+  }
+  ```
+
+  ## Response
+
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | `id` | string | Unique identifier for the created customer |
+  | `name` | string | Customer name |
+  | `email` | string | Customer email |
+  | `createdAt` | string | ISO 8601 timestamp of creation |
+
+  **Success status:** `201 Created`
+
+  > 💡 The created customer's `id` is automatically saved to the `customerId` collection variable for use in subsequent requests.
+
+  ## Tests
+  - Verifies response status is `201`
+  - Verifies response body contains `id`, `name`, `email`, and `createdAt` fields
+url: "{{baseUrl}}/customers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: '{"name":"Acme Bakery","email":"owner@acmebakery.test"}'
+settings: {}
+examples: ./.resources/Create customer.resources/examples
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", () => pm.response.to.have.status(201));
+      pm.test("Response has customer fields", () => {
+        const body = pm.response.json();
+        pm.expect(body).to.have.property("id");
+        pm.expect(body).to.have.property("name");
+        pm.expect(body).to.have.property("email");
+        pm.expect(body).to.have.property("createdAt");
+      });
+      const id = pm.response.json().id;
+      if (id) pm.collectionVariables.set("customerId", id);

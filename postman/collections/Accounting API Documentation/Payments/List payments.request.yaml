@@ -1,0 +1,40 @@
+$kind: http-request
+description: |-
+  Retrieves a list of all payment records across all invoices.
+
+  **Method:** `GET`  
+  **URL:** `{{baseUrl}}/payments`
+
+  ## Response
+
+  Returns a JSON array of payment objects. Each object contains:
+
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | `id` | string | Unique payment identifier |
+  | `invoiceId` | string | ID of the invoice this payment is applied to |
+  | `amount` | number | Payment amount |
+  | `paymentDate` | string | Date the payment was made |
+  | `method` | string | Payment method used |
+  | `reference` | string | Optional reference or transaction ID |
+
+  **Success status:** `200 OK`
+
+  ## Tests
+  - Verifies response status is `200`
+  - Verifies response body is an array
+url: "{{baseUrl}}/payments"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/List payments.resources/examples
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", () => pm.response.to.have.status(200));
+      pm.test("Response is an array", () => {
+        pm.expect(pm.response.json()).to.be.an("array");
+      });

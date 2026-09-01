@@ -1,0 +1,77 @@
+$kind: http-request
+description: |-
+  Creates a new invoice for a customer, including line items and due date.
+
+  **Method:** `POST`  
+  **URL:** `{{baseUrl}}/invoices`  
+  **Content-Type:** `application/json`
+
+  ## Request Body
+
+  | Field | Type | Required | Description |
+  |-------|------|----------|-------------|
+  | `customerId` | string | ✅ | ID of the customer this invoice belongs to |
+  | `invoiceDate` | string | ✅ | Invoice issue date in `YYYY-MM-DD` format |
+  | `dueDate` | string | ✅ | Payment due date in `YYYY-MM-DD` format |
+  | `currency` | string | ✅ | ISO 4217 currency code (e.g. `"USD"`) |
+  | `lineItems` | array | ✅ | One or more line items on the invoice |
+  | `lineItems[].description` | string | ✅ | Description of the service or product |
+  | `lineItems[].quantity` | number | ✅ | Quantity of units |
+  | `lineItems[].unitPrice` | number | ✅ | Price per unit |
+
+  **Example:**
+  ```json
+  {
+    "customerId": "cust_001",
+    "invoiceDate": "2026-01-15",
+    "dueDate": "2026-01-30",
+    "currency": "USD",
+    "lineItems": [
+      { "description": "Monthly bookkeeping", "quantity": 1, "unitPrice": 1250 }
+    ]
+  }
+  ```
+
+  ## Response
+
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | `id` | string | Unique invoice identifier |
+  | `invoiceNumber` | string | Human-readable invoice number |
+  | `customerId` | string | Associated customer ID |
+  | `status` | string | Invoice status (e.g. `"draft"`, `"sent"`, `"paid"`) |
+  | `total` | number | Total invoice amount |
+
+  **Success status:** `201 Created`
+
+  > 💡 The created invoice's `id` is automatically saved to the `invoiceId` collection variable for use in subsequent requests.
+
+  ## Tests
+  - Verifies response status is `201`
+  - Verifies response body contains `id`, `invoiceNumber`, `customerId`, `status`, and `total` fields
+url: "{{baseUrl}}/invoices"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: '{"customerId":"cust_001","invoiceDate":"2026-01-15","dueDate":"2026-01-30","currency":"USD","lineItems":[{"description":"Monthly bookkeeping","quantity":1,"unitPrice":1250}]}'
+settings: {}
+examples: ./.resources/Create invoice.resources/examples
+order: 3000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", () => pm.response.to.have.status(201));
+      pm.test("Response has invoice fields", () => {
+        const body = pm.response.json();
+        pm.expect(body).to.have.property("id");
+        pm.expect(body).to.have.property("invoiceNumber");
+        pm.expect(body).to.have.property("customerId");
+        pm.expect(body).to.have.property("status");
+        pm.expect(body).to.have.property("total");
+      });
+      const id = pm.response.json().id;
+      if (id) pm.collectionVariables.set("invoiceId", id);

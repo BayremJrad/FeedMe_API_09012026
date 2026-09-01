@@ -1,5 +1,8 @@
 workspace:
   id: e15f65a4-c4ec-485e-87ba-7960924690d4
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
 cloudResources:
   collections:
     ../postman/collections/Accounting API: 57761290-8a7cf595-35f4-47a7-b481-adf54446a9ac
