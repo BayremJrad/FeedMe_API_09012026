@@ -1,0 +1,9 @@
+$kind: http-request
+description: List invoices.
+url: "{{baseUrl}}/invoices"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/List invoices.resources/examples
+order: 4000

@@ -1,0 +1,13 @@
+$kind: http-request
+description: Create an invoice.
+url: "{{baseUrl}}/invoices"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: '{"customerId":"cust_001","invoiceDate":"2026-01-15","dueDate":"2026-01-30","currency":"USD","lineItems":[{"description":"Monthly bookkeeping","quantity":1,"unitPrice":1250}]}'
+settings: {}
+examples: ./.resources/Create invoice.resources/examples
+order: 3000

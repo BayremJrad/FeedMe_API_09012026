@@ -1,0 +1,16 @@
+{
+  "entityId": "ee5d15Af99aa96d98AaDa885",
+  "entityType": "collections",
+  "buildId": 18735,
+  "createdAt": "2026-09-01T11:48:36.084Z",
+  "downloads": [
+    {
+      "language": "java",
+      "status": "success",
+      "createdAt": "2026-09-01T11:48:36.092Z",
+      "link": "https://us-prod-sdk-gen-api-code-gen-uploads.s3.us-east-1.amazonaws.com/8913a210-3b36-4d0c-89ca-ff5e2f515d0a/accounting-api-sdk-java-1.0.0.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LJBU7KGPMJSOO%2F20260901%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260901T114846Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQC7WdBKUsia2%2BO603rkzJCnd61tGVJUmPANg%2FJ9ZZj%2FmwIgaMaREruNoQzn%2BiJYIHp5L7BK3sdHCXUnPFtYgOpcPowqnAUIrP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjM2NTIxNTgiDL%2FFtgZD3HXb0REwGSrwBGdxqOuNyZaEmAKZUonA1U4XKdX%2FwcdDEAfWk4S9B24JLPYXhLpRvDZp7vgUqiAHHRBVLiXJdQsp7Y%2FRZfPLQXZXGOZcIaPG8L%2FJDUhStCXT9BkHmTrXChX6rDniwd3YMeJraGpc3sbnp41phZ8wfKNsaOqN8nad0P4SlStSfsjQEG7MXTeXVGXd%2FEkcGcecIpYeOAfszdKhKsKquHY7Iwsz1OQt7zeR7m79zSPT0ziFVT%2FAMbi8ZSrcB%2BQKarxwjnZ%2FcLfBjWWnDx4722kQexKxNQSCSkwy0Dxg%2FBo73zQgw844jQGYrSosYW3K4jJNRnH3bA0ei2cDaxpkccGKR84uLIdjXlRhaJKpG9kcC9OFb6kVG9kCe5srLoCiz4m1hB6MRMDG4PY7Boo53ugkZ%2FsxEPhW2JVSIVlzA2Sy8stKoyZaXMdqcU8k788DoPrSjSBeGam30OJ7FiGSkDGyd00H3FW6vZADjJVx7wr9pddjxEvAKphXUWgVJFnwL9TFf77Mn1spdT%2B6AHrpg90img2x6%2FONTAg1OS%2FsjqC%2FfDZfFtnx6RFgY%2FG%2Fe5hmGVcdohfe%2B2GeltrV4iYLyPYI22K1%2BbQ41o9yfBh5Ch9kyxY6IhmsJTrx9MCQE0DI4JsEbLYFF8sk3YwF727rWDWqeRoF3xpHyHmyxFO7CqiHxB%2BHfHxmD53z0HE%2BSC94fBL%2FX6OTycv4BHmkKSTtYg6zdhgXxre%2BhEAG6t2u3XifgqZ4iWGxbyNYjo4kk35263zA7xtIJ9nu6NVLMtnkpJTP8HV7ZGhuCtXNuGLyFZlLHATc1dRR1ytXh4ZlCveBD2PGVTCV69rUBjqZAc8b4GbNt7t%2FDVZ3STjT%2BZr2%2Fgrj%2FdzF%2FsvI2X3uGn%2F1vfSTqNK698834vPquS979fGgXGuOIkaA0gCTnKfQ2bScdgCi9lP1A1WAYQAZxvL7ZwRfgG%2BtLWQ%2BAHkjl%2BxalHSfgDmhwgbrKRIEDJLm8Ckk0tIdVwutR%2Fdifd%2B677dZynDcDeDMaZBDtbE8D6ZBch5OAgdjnmjkPg%3D%3D&X-Amz-Signature=1c2d7214e23d88d1cf1371509ae017cfe2078d77bab7477e312b7be54fd26d80&X-Amz-SignedHeaders=host&x-id=GetObject",
+      "contentHash": "5f898bf2f6cf57cbb660cffb26d89092f166a7477a4801b6660d224e44b50101"
+    }
+  ],
+  "sdkName": "accounting-api-sdk"
+}

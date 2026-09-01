@@ -1,0 +1,47 @@
+{
+  "endpoints": {
+    "/health": {
+      "get": "import com.accountingapisdk.AccountingApiSdk;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.getHealth();\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    },
+    "/customers": {
+      "post": "import com.accountingapisdk.AccountingApiSdk;\nimport com.accountingapisdk.models.CreateCustomerRequest;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tCreateCustomerRequest createCustomerRequest = CreateCustomerRequest.builder()\n\t\t\t.name(\"Acme Bakery\")\n\t\t\t.email(\"owner@acmebakery.test\")\n\t\t\t.build();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.createCustomer(createCustomerRequest);\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n",
+      "get": "import com.accountingapisdk.AccountingApiSdk;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.listCustomers();\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    },
+    "/invoices/{invoiceId}/payments": {
+      "post": "import com.accountingapisdk.AccountingApiSdk;\nimport com.accountingapisdk.models.RecordInvoicePaymentRequest;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tRecordInvoicePaymentRequest recordInvoicePaymentRequest = RecordInvoicePaymentRequest.builder()\n\t\t\t.amount(500L)\n\t\t\t.paymentDate(\"2026-01-20\")\n\t\t\t.method(\"bank_transfer\")\n\t\t\t.reference(\"BT-7781\")\n\t\t\t.build();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.recordInvoicePayment(\"invoiceId\", recordInvoicePaymentRequest);\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    },
+    "/invoices/{invoiceId}": {
+      "get": "import com.accountingapisdk.AccountingApiSdk;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.getInvoiceById(\"invoiceId\");\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    },
+    "/invoices": {
+      "post": "import com.accountingapisdk.AccountingApiSdk;\nimport com.accountingapisdk.models.CreateInvoiceRequest;\nimport com.accountingapisdk.models.LineItems;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tLineItems lineItems = LineItems.builder()\n\t\t\t.description(\"Monthly bookkeeping\")\n\t\t\t.quantity(1L)\n\t\t\t.unitPrice(1250L)\n\t\t\t.build();\n\t\t\n\t\tList<LineItems> lineItemsList = Arrays.asList(lineItems);\n\t\t\n\t\tCreateInvoiceRequest createInvoiceRequest = CreateInvoiceRequest.builder()\n\t\t\t.customerId(\"cust_001\")\n\t\t\t.invoiceDate(\"2026-01-15\")\n\t\t\t.dueDate(\"2026-01-30\")\n\t\t\t.currency(\"USD\")\n\t\t\t.lineItems(lineItemsList)\n\t\t\t.build();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.createInvoice(createInvoiceRequest);\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n",
+      "get": "import com.accountingapisdk.AccountingApiSdk;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.listInvoices();\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    },
+    "/payments": {
+      "get": "import com.accountingapisdk.AccountingApiSdk;\n\npublic class Main {\n    public static void main(String[] args) {\n\t\tAccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\t\tObject response = accountingApiSdk.accountingApiSdk.listPayments();\n\t\t\t\n\t\tSystem.out.println(response);\n    }\n}\n"
+    }
+  },
+  "methodResponses": {
+    "/health": {
+      "get": "System.out.println(response);"
+    },
+    "/customers": {
+      "post": "System.out.println(response);",
+      "get": "System.out.println(response);"
+    },
+    "/invoices/{invoiceId}/payments": {
+      "post": "System.out.println(response);"
+    },
+    "/invoices/{invoiceId}": {
+      "get": "System.out.println(response);"
+    },
+    "/invoices": {
+      "post": "System.out.println(response);",
+      "get": "System.out.println(response);"
+    },
+    "/payments": {
+      "get": "System.out.println(response);"
+    }
+  },
+  "example": "import com.accountingapisdk.AccountingApiSdk;\nimport com.accountingapisdk.exceptions.ApiError;\n  \npublic class Main {\n  public static void main(String[] args) {\n    AccountingApiSdk accountingApiSdk = new AccountingApiSdk();\n\n\n    try {\n      Object response = accountingApiSdk.accountingApiSdk.getHealth();\n        \n      System.out.println(response);\n    } catch (ApiError e) {\n      e.printStackTrace();\n    }\n\n    System.exit(0);\n  }\n}\n"
+}

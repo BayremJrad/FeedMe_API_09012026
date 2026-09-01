@@ -1,0 +1,12 @@
+workspace:
+  id: e15f65a4-c4ec-485e-87ba-7960924690d4
+cloudResources:
+  collections:
+    ../postman/collections/Accounting API: 57761290-8a7cf595-35f4-47a7-b481-adf54446a9ac
+  environments:
+    ../postman/environments/Accounting API Base.environment.yaml: 57761290-24961dc4-b13b-4023-a691-54338f510423
+  specs:
+    ../postman/specs/FeedMe API Contract/index.yaml: 8688a727-94ff-4e17-97fe-b969fa277a57
+resourceNameMappings:
+  specs:
+    - ../postman/specs/FeedMe API Contract/index.yaml: FeedMe API Contract

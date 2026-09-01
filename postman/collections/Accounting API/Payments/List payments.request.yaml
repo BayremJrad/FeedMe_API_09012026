@@ -1,0 +1,9 @@
+$kind: http-request
+description: List recorded payments.
+url: "{{baseUrl}}/payments"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/List payments.resources/examples
+order: 1000

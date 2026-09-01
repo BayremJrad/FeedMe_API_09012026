@@ -1,0 +1,42 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/invoices/:invoiceId"
+  method: GET
+  headers:
+    Accept: application/json
+  pathVariables:
+    - key: invoiceId
+      value: inv_1001
+      description: Invoice ID
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "inv_1001",
+        "invoiceNumber": "INV-1001",
+        "customerId": "cust_001",
+        "invoiceDate": "2026-01-15",
+        "dueDate": "2026-01-30",
+        "currency": "USD",
+        "lineItems": [
+          {
+            "description": "Monthly bookkeeping",
+            "quantity": 1,
+            "unitPrice": 1250,
+            "amount": 1250
+          }
+        ],
+        "total": 1250,
+        "amountPaid": 500,
+        "balanceDue": 750,
+        "status": "partially_paid"
+      }
+order: 1000

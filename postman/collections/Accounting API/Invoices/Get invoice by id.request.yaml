@@ -1,0 +1,11 @@
+$kind: http-request
+description: Get a single invoice by ID.
+url: "{{baseUrl}}/invoices/:invoiceId"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  invoiceId: ""
+settings: {}
+examples: ./.resources/Get invoice by id.resources/examples
+order: 2000

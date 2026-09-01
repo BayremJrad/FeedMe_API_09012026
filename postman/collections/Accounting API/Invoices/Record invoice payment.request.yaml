@@ -1,0 +1,15 @@
+$kind: http-request
+description: Record a payment against an invoice.
+url: "{{baseUrl}}/invoices/:invoiceId/payments"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  invoiceId: ""
+body:
+  type: json
+  content: '{"amount":500,"paymentDate":"2026-01-20","method":"bank_transfer","reference":"BT-7781"}'
+settings: {}
+examples: ./.resources/Record invoice payment.resources/examples
+order: 1000

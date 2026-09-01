@@ -1,0 +1,376 @@
+openapi: 3.0.0
+info:
+  title: Accounting API
+  version: 1.0.0
+  description: >-
+    Minimal HTTP API surface for a basic accounting application. Intentionally
+    small and practical.
+servers:
+  - url: '{{baseUrl}}'
+paths:
+  /health:
+    get:
+      summary: Get health
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  service:
+                    type: string
+              example:
+                status: ok
+                service: accounting-api
+      tags:
+        - Health
+      description: Basic service health check.
+  /customers:
+    post:
+      summary: Create customer
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  createdAt:
+                    type: string
+                    format: date-time
+              example:
+                id: cust_001
+                name: Acme Bakery
+                email: owner@acmebakery.test
+                createdAt: '2026-01-15T10:00:00Z'
+      tags:
+        - Customers
+      description: Create a customer.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+            example:
+              name: Acme Bakery
+              email: owner@acmebakery.test
+    get:
+      summary: List customers
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    email:
+                      type: string
+                      format: email
+              example:
+                - id: cust_001
+                  name: Acme Bakery
+                  email: owner@acmebakery.test
+                - id: cust_002
+                  name: Northwind Cafe
+                  email: accounts@northwind.test
+      tags:
+        - Customers
+      description: List customers.
+  /invoices/{invoiceId}/payments:
+    post:
+      summary: Record invoice payment
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  invoiceId:
+                    type: string
+                  amount:
+                    type: integer
+                  currency:
+                    type: string
+                  paymentDate:
+                    type: string
+                    format: date
+                  method:
+                    type: string
+                  reference:
+                    type: string
+              example:
+                id: pay_9001
+                invoiceId: inv_1001
+                amount: 500
+                currency: USD
+                paymentDate: '2026-01-20'
+                method: bank_transfer
+                reference: BT-7781
+      tags:
+        - Invoices
+      description: Record a payment against an invoice.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                paymentDate:
+                  type: string
+                  format: date
+                method:
+                  type: string
+                reference:
+                  type: string
+            example:
+              amount: 500
+              paymentDate: '2026-01-20'
+              method: bank_transfer
+              reference: BT-7781
+    parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+  /invoices/{invoiceId}:
+    get:
+      summary: Get invoice by id
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  invoiceNumber:
+                    type: string
+                  customerId:
+                    type: string
+                  invoiceDate:
+                    type: string
+                    format: date
+                  dueDate:
+                    type: string
+                    format: date
+                  currency:
+                    type: string
+                  lineItems:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        description:
+                          type: string
+                        quantity:
+                          type: integer
+                        unitPrice:
+                          type: integer
+                        amount:
+                          type: integer
+                  total:
+                    type: integer
+                  amountPaid:
+                    type: integer
+                  balanceDue:
+                    type: integer
+                  status:
+                    type: string
+              example:
+                id: inv_1001
+                invoiceNumber: INV-1001
+                customerId: cust_001
+                invoiceDate: '2026-01-15'
+                dueDate: '2026-01-30'
+                currency: USD
+                lineItems:
+                  - description: Monthly bookkeeping
+                    quantity: 1
+                    unitPrice: 1250
+                    amount: 1250
+                total: 1250
+                amountPaid: 500
+                balanceDue: 750
+                status: partially_paid
+      tags:
+        - Invoices
+      description: Get a single invoice by ID.
+    parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+  /invoices:
+    post:
+      summary: Create invoice
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  invoiceNumber:
+                    type: string
+                  customerId:
+                    type: string
+                  currency:
+                    type: string
+                  total:
+                    type: integer
+                  status:
+                    type: string
+              example:
+                id: inv_1001
+                invoiceNumber: INV-1001
+                customerId: cust_001
+                currency: USD
+                total: 1250
+                status: open
+      tags:
+        - Invoices
+      description: Create an invoice.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customerId:
+                  type: string
+                invoiceDate:
+                  type: string
+                  format: date
+                dueDate:
+                  type: string
+                  format: date
+                currency:
+                  type: string
+                lineItems:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                      quantity:
+                        type: integer
+                      unitPrice:
+                        type: integer
+            example:
+              customerId: cust_001
+              invoiceDate: '2026-01-15'
+              dueDate: '2026-01-30'
+              currency: USD
+              lineItems:
+                - description: Monthly bookkeeping
+                  quantity: 1
+                  unitPrice: 1250
+    get:
+      summary: List invoices
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    customerId:
+                      type: string
+                    invoiceNumber:
+                      type: string
+                    currency:
+                      type: string
+                    total:
+                      type: integer
+                    status:
+                      type: string
+              example:
+                - id: inv_1001
+                  customerId: cust_001
+                  invoiceNumber: INV-1001
+                  currency: USD
+                  total: 1250
+                  status: open
+      tags:
+        - Invoices
+      description: List invoices.
+  /payments:
+    get:
+      summary: List payments
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    invoiceId:
+                      type: string
+                    amount:
+                      type: integer
+                    currency:
+                      type: string
+                    paymentDate:
+                      type: string
+                      format: date
+                    method:
+                      type: string
+              example:
+                - id: pay_9001
+                  invoiceId: inv_1001
+                  amount: 500
+                  currency: USD
+                  paymentDate: '2026-01-20'
+                  method: bank_transfer
+      tags:
+        - Payments
+      description: List recorded payments.

@@ -1,0 +1,9 @@
+$kind: http-request
+description: List customers.
+url: "{{baseUrl}}/customers"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/List customers.resources/examples
+order: 2000

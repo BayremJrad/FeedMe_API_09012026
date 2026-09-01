@@ -1,0 +1,288 @@
+{
+  "sdkGenVersion": "2.4.0",
+  "resolvedGeneratorVersion": "2.4.0",
+  "date": "2026-09-01T11:48:36.252Z",
+  "config": {
+    "languages": [
+      "java"
+    ],
+    "deliveryMethods": [
+      "zip"
+    ],
+    "languageOptions": {
+      "python": {
+        "alwaysInitializeOptionals": false,
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "typescript": {
+        "bundle": true,
+        "exportClassDefault": false,
+        "httpClient": "fetch",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "generateEnumAs": "union"
+      },
+      "go": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "java": {
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "groupId": "com",
+        "artifactId": "accountingapisdk"
+      },
+      "php": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "csharp": {
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "useOptionalWrapper": true,
+        "validateResponses": false
+      },
+      "cli": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "kotlin": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "ruby": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "rust": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "swift": {
+        "ignoreFiles": []
+      }
+    },
+    "includeWatermark": false,
+    "responseHeaders": false,
+    "sdkName": "accounting-api-sdk",
+    "sdkVersion": "1.0.0",
+    "specLocation": {
+      "bucketName": "us-prod-sdk-gen-api-specs",
+      "bucketKey": "one-off/collections/4c79ee72-ca40-4c42-bdea-bf1cd64b1ee4.json"
+    },
+    "customCode": {
+      "trackChanges": true
+    },
+    "ignoreFiles": [],
+    "liblabVersion": "2",
+    "groupId": "com",
+    "artifactId": "accountingapisdk",
+    "language": "java",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "validateResponses": false,
+    "enumRepresentation": "forward-compatible",
+    "asyncStyle": "twin-methods",
+    "usesFormData": false,
+    "authentication": {},
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "inferServiceNames": false,
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {},
+      "languages": [
+        "typescript"
+      ]
+    },
+    "auth": [],
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpMethodsToRetry": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH",
+        "HEAD",
+        "OPTIONS"
+      ],
+      "maxRetryAfterDelay": 60000
+    },
+    "multiTenant": false,
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    },
+    "devContainer": false,
+    "ai": false,
+    "fernMode": false,
+    "fernResourceFileLayout": false,
+    "includeOptionalSnippetParameters": true,
+    "specType": "postman",
+    "deprecatedOperations": {
+      "include": true
+    },
+    "multipleResponses": {
+      "enabled": false
+    }
+  },
+  "files": [
+    "pom.xml",
+    ".gitignore",
+    ".github/workflows/release.yml",
+    "src/main/java/com/accountingapisdk/validation/Violation.java",
+    "src/main/java/com/accountingapisdk/validation/ViolationAggregator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/AbstractValidator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/ListValidator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/NumericValidator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/StringValidator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/Validator.java",
+    "src/main/java/com/accountingapisdk/validation/validators/modelValidators/AbstractModelValidator.java",
+    "src/main/java/com/accountingapisdk/validation/exceptions/ValidationException.java",
+    "src/main/java/com/accountingapisdk/services/BaseService.java",
+    "src/main/java/com/accountingapisdk/logging/ConsoleLogger.java",
+    "src/main/java/com/accountingapisdk/logging/ILogger.java",
+    "src/main/java/com/accountingapisdk/logging/LogConfig.java",
+    "src/main/java/com/accountingapisdk/logging/LogLevel.java",
+    "src/main/java/com/accountingapisdk/logging/Logger.java",
+    "src/main/java/com/accountingapisdk/http/HttpMethod.java",
+    "src/main/java/com/accountingapisdk/http/ModelConverter.java",
+    "src/main/java/com/accountingapisdk/http/util/ContentTypes.java",
+    "src/main/java/com/accountingapisdk/http/util/HttpArgumentConverter.java",
+    "src/main/java/com/accountingapisdk/http/serialization/PathSerializationStyle.java",
+    "src/main/java/com/accountingapisdk/http/serialization/QuerySerializationStyle.java",
+    "src/main/java/com/accountingapisdk/http/serialization/SerializationStyle.java",
+    "src/main/java/com/accountingapisdk/http/serialization/Serializer.java",
+    "src/main/java/com/accountingapisdk/http/serialization/Util.java",
+    "src/main/java/com/accountingapisdk/http/interceptors/DefaultHeadersInterceptor.java",
+    "src/main/java/com/accountingapisdk/http/interceptors/LoggingInterceptor.java",
+    "src/main/java/com/accountingapisdk/exceptions/ApiError.java",
+    "src/main/java/com/accountingapisdk/exceptions/BadRequestError.java",
+    "src/main/java/com/accountingapisdk/exceptions/UnauthorizedError.java",
+    "src/main/java/com/accountingapisdk/exceptions/ForbiddenError.java",
+    "src/main/java/com/accountingapisdk/exceptions/NotFoundError.java",
+    "src/main/java/com/accountingapisdk/exceptions/MethodNotAllowedError.java",
+    "src/main/java/com/accountingapisdk/exceptions/ConflictError.java",
+    "src/main/java/com/accountingapisdk/exceptions/TooManyRequestsError.java",
+    "src/main/java/com/accountingapisdk/http/Environment.java",
+    "src/main/java/com/accountingapisdk/AccountingApiSdk.java",
+    "src/main/java/com/accountingapisdk/http/AccountingApiSdkResponse.java",
+    "src/main/java/com/accountingapisdk/http/AccountingApiSdkResponseMetadata.java",
+    "src/main/java/com/accountingapisdk/http/RawHttpResponse.java",
+    "src/main/java/com/accountingapisdk/http/interceptors/RetryInterceptor.java",
+    "src/main/java/com/accountingapisdk/config/RetryConfig.java",
+    "src/main/java/com/accountingapisdk/config/AccountingApiSdkConfig.java",
+    "src/main/java/com/accountingapisdk/config/RequestConfig.java",
+    "documentation/snippets/snippets.json",
+    "documentation/models/CreateCustomerRequest.md",
+    "documentation/models/RecordInvoicePaymentRequest.md",
+    "documentation/models/CreateInvoiceRequest.md",
+    "documentation/models/LineItems.md",
+    "src/main/java/com/accountingapisdk/json/TypeUtils.java",
+    "examples/pom.xml",
+    "examples/run.sh",
+    "examples/src/main/java/com/example/Main.java",
+    "examples/.gitignore",
+    ".idea/workspace.xml",
+    ".idea/misc.xml",
+    ".idea/compiler.xml",
+    ".idea/encoding.xml",
+    ".idea/jarRepositories.xml",
+    "src/main/java/com/accountingapisdk/http/util/RequestBuilder.java",
+    "examples/README.md",
+    ".env.example",
+    "src/main/java/com/accountingapisdk/models/CreateCustomerRequest.java",
+    "src/main/java/com/accountingapisdk/models/LineItems.java",
+    "src/main/java/com/accountingapisdk/models/RecordInvoicePaymentRequest.java",
+    "src/main/java/com/accountingapisdk/models/CreateInvoiceRequest.java",
+    "documentation/services/AccountingApiSdkService.md",
+    "README.md",
+    "src/main/java/com/accountingapisdk/services/AccountingApiSdkService.java"
+  ],
+  "fileHashes": {
+    ".env.example": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".github/workflows/release.yml": "a66019ba74698adb38f6ae521a57fca2f59c607ef18980d508d495e673b7483e",
+    ".gitignore": "16c2381047d584e96eb9c89da75b41f24abb5df5e1b9b770321ef9bf9f46b7b4",
+    ".idea/compiler.xml": "d4b3c50d88d994f6b45771590618d6bb974dd4686aee2207f98e4f2d6425f438",
+    ".idea/encoding.xml": "c08731aff01601ae1dce0f19fe8f058b750a167cdef4fb92b8ba104eeb7ec038",
+    ".idea/jarRepositories.xml": "9c794caa37d870d809db42aa629d5232e5f1a9a76593a28a55898244ecbc75a2",
+    ".idea/misc.xml": "042abf22dfaa2dc7e5f3d7956f778c18bdfb7404f4a9bddd388d49e48e00f90e",
+    ".idea/workspace.xml": "32d53bc235e8b812ce5ce2cb98790b112a3065c0237da9e258451f94b59f3c73",
+    "README.md": "04303ef4847bde2e591d7e9ca081cb1044c5ad5cc1f0e099c726768185fa05c0",
+    "documentation/models/CreateCustomerRequest.md": "d4cd9bcdca12c5c44cfd373c51782c8975e009441199a83bdcd8a535b5406910",
+    "documentation/models/CreateInvoiceRequest.md": "16a10825c6b578c713747000c70f3e2524e8cc367d20199ccd36131b36ee1a5b",
+    "documentation/models/LineItems.md": "97688f200d769f02382200164b4fa3b64a08cca474b5d99fb1bcafeccdec02e7",
+    "documentation/models/RecordInvoicePaymentRequest.md": "c6b471e7072fd37051071f7938726b60a79d9cd46e48d6ea418f17d806e1422a",
+    "documentation/services/AccountingApiSdkService.md": "f960ce9059c051f2f598ff0add969d9606121633f0c58d6617fdae181d22dd71",
+    "documentation/snippets/snippets.json": "0352418a1f9090b28211fe060c224e15e6007efdb6bd196c29435bace0733f4f",
+    "examples/.gitignore": "16c2381047d584e96eb9c89da75b41f24abb5df5e1b9b770321ef9bf9f46b7b4",
+    "examples/README.md": "2ebdbbad5d59feae774f3ee3b1c6a868a49c5dc97eb2ee782ac20a622621c0e1",
+    "examples/pom.xml": "7b38a7d394ccd5161d1e53d90550500bdbd86c518738e26f3550f5904076e440",
+    "examples/run.sh": "b421122e2d707b60e35b125a39a47dd9b1bec16d241aec1ba5a7357816e4757b",
+    "examples/src/main/java/com/example/Main.java": "26287ae67df275bdc7b9c549a9137d6dbecc6fd0e27cb12558945dee61b8f752",
+    "pom.xml": "f4ccdf14cd7d2e0e762a494c16ea14eec4114155b58b9bb11da284dc5e413392",
+    "prettier.config.js": "b3f990b4c84640a705ded29e3343d8e3d70ddc4b88431d10d47c23f568470cfd",
+    "src/main/java/com/accountingapisdk/AccountingApiSdk.java": "a983d240407db3d879aaba0559f2baa55a24005146cf15134a6b028c5109715e",
+    "src/main/java/com/accountingapisdk/config/AccountingApiSdkConfig.java": "0d4976e3489f4343e8d7ca4d15f41a61bf0026f887bcd2c48a9d2036b1fce194",
+    "src/main/java/com/accountingapisdk/config/RequestConfig.java": "80010f114d390ae3d5b2363f3c655584d3fb4747d220b2983abc8d706e8d454a",
+    "src/main/java/com/accountingapisdk/config/RetryConfig.java": "f992fb232ffdcc4e70fb62cd26190feab4b3bccc804049faae9ef6d1e5937a9e",
+    "src/main/java/com/accountingapisdk/exceptions/ApiError.java": "f242f0abf97d69a9bfbd9b6657b76103ab0f6681c5146d1fda131145d31a8aeb",
+    "src/main/java/com/accountingapisdk/exceptions/BadRequestError.java": "392be28f5e22f3e853ea551460f8847ee33f2391d8257926ae36388f21342dc8",
+    "src/main/java/com/accountingapisdk/exceptions/ConflictError.java": "f2a519eb878a134c37705507b3a55e9a3091e47e85afe699c162c3f13924bf9a",
+    "src/main/java/com/accountingapisdk/exceptions/ForbiddenError.java": "c320f86bb08cbed41419c646beca0f1ec731e362c11bb741be1feba4e275519d",
+    "src/main/java/com/accountingapisdk/exceptions/MethodNotAllowedError.java": "e3576a9cbd090e66b8371926a25277cecd25be867ae73270988589b7a6032ffb",
+    "src/main/java/com/accountingapisdk/exceptions/NotFoundError.java": "d65be0161bd9a506b471558e96b3363361bfd62ea68deebe66eeec086726e1d7",
+    "src/main/java/com/accountingapisdk/exceptions/TooManyRequestsError.java": "cf14839370d28fa882661322e3b1c0112342be8fc65f770bca5732a82d264f9d",
+    "src/main/java/com/accountingapisdk/exceptions/UnauthorizedError.java": "e81c10ab850be32f83a34f37b771d278db602a25da22a06297e0abbdf103e217",
+    "src/main/java/com/accountingapisdk/http/AccountingApiSdkResponse.java": "6034ac6f8854894096cca339f1faf210f327955c8a7f31457984062f04481efc",
+    "src/main/java/com/accountingapisdk/http/AccountingApiSdkResponseMetadata.java": "a3cc8857e38f7af95d3e8935ed1704ca828600613f79f1dd56c03b54290291f7",
+    "src/main/java/com/accountingapisdk/http/Environment.java": "488fa0a4f8502ac1c5b357eb3186e8d2bb1cc1eadf55af8ee70aa06f840b5459",
+    "src/main/java/com/accountingapisdk/http/HttpMethod.java": "dc29e2b4419c11d53b6da6f531fe2d1f6e15487627d18a1b10ce38d115612b35",
+    "src/main/java/com/accountingapisdk/http/ModelConverter.java": "f6707046513dd9c98eb0385ca22a167dc340c5ad4e0232a5775049a945233f79",
+    "src/main/java/com/accountingapisdk/http/RawHttpResponse.java": "bc233de52b6a47800fb6a58f9ec587a66b1f033a1e8e3c6030d42039215e5ad6",
+    "src/main/java/com/accountingapisdk/http/interceptors/DefaultHeadersInterceptor.java": "c9624ee5f19fc8c75d7a3dbc98c2fce98871808b0af05850046780fb38403e05",
+    "src/main/java/com/accountingapisdk/http/interceptors/LoggingInterceptor.java": "6f28ad65ddc4627a92ec86ef231ce2641f746acb71e5f8786b3ea636a144ff2a",
+    "src/main/java/com/accountingapisdk/http/interceptors/RetryInterceptor.java": "fbca3f3fed6cda501f054f3cbaeffb8f45a97f9d5dafdd4401c67612428b3758",
+    "src/main/java/com/accountingapisdk/http/serialization/PathSerializationStyle.java": "2c8feaf6d20c7c68a4d8c0d591e2bc4a0b2ad25e51ba3ff7f1171276ce484914",
+    "src/main/java/com/accountingapisdk/http/serialization/QuerySerializationStyle.java": "07bc8f747b03f14861a892bc054b8c76f462b057f4578cdefef57def0a3996cf",
+    "src/main/java/com/accountingapisdk/http/serialization/SerializationStyle.java": "cc1b4c522e28ec390a2ebdfa2c4ef26122c17e484055153bbecbdd3abd38b170",
+    "src/main/java/com/accountingapisdk/http/serialization/Serializer.java": "8ad8526421c4b936a43d0df9bcf62f7c7febadcf7f214fe55eecdba74fab5863",
+    "src/main/java/com/accountingapisdk/http/serialization/Util.java": "9cbefbf2f9342110009dbc2de9a9d3320505f0371d6177878cb978ea2c1c2cfa",
+    "src/main/java/com/accountingapisdk/http/util/ContentTypes.java": "28070c067c5edfdc11340d955995974e0ce3d6f743b85ade2fbca804b2f312ab",
+    "src/main/java/com/accountingapisdk/http/util/HttpArgumentConverter.java": "6edb6080c994ac5f702d5b94f24b02a9e239cc313f5f1b82d76e5a5391fac188",
+    "src/main/java/com/accountingapisdk/http/util/RequestBuilder.java": "f691a62e5b38788fb2beb3efe7f4a9969f319eaccac9d17670d4fadcd7f83104",
+    "src/main/java/com/accountingapisdk/json/TypeUtils.java": "53175f259dd3623a9d84e8c78bde390da9b55e52cd07957100fef66234fe721c",
+    "src/main/java/com/accountingapisdk/logging/ConsoleLogger.java": "4b2e230ea3c4e7105fe47e2c863f501506370fa54e17e33629eb454f8f576a37",
+    "src/main/java/com/accountingapisdk/logging/ILogger.java": "219de2f7743f2df65d65427fb07924da309a6e5fc7eb226f9e1c5c04afc76a6d",
+    "src/main/java/com/accountingapisdk/logging/LogConfig.java": "fc0547728746986c90eede448975ba81f286b50b7714f47295b5a3430fad6c6c",
+    "src/main/java/com/accountingapisdk/logging/LogLevel.java": "c6c4d1d1c479a60ff393dcc83fe8bf8702f08051deb461920ef70c1841d8606e",
+    "src/main/java/com/accountingapisdk/logging/Logger.java": "0af4fafa1e9a63be1eb97c41881e2eda06f01726a8273e8ba8216508cbce9d39",
+    "src/main/java/com/accountingapisdk/models/CreateCustomerRequest.java": "4ff90f99c67e5e7799fc4628ef585f3b5bbee6cb4c77288c9004bf3578c0ec02",
+    "src/main/java/com/accountingapisdk/models/CreateInvoiceRequest.java": "a53bb141218147d657b651987f6b3f7363299329f8834a820bd453208ff4f98a",
+    "src/main/java/com/accountingapisdk/models/LineItems.java": "9428b382705c5911f60bf7380408dc516d5b612afc58f5092b490ce8e5140e53",
+    "src/main/java/com/accountingapisdk/models/RecordInvoicePaymentRequest.java": "19da2baba9831704170a8d165d08cb97d4f1f46539ed746f2a88a28192f6b762",
+    "src/main/java/com/accountingapisdk/services/AccountingApiSdkService.java": "25c4a6d305afd44481c1e085774b8e7c463c743f6f73a52b37145b554a875af4",
+    "src/main/java/com/accountingapisdk/services/BaseService.java": "af77c996af2edf96a498ddb439acec02a9fae411c8ba368e25bbe0465c3e1b99",
+    "src/main/java/com/accountingapisdk/validation/Violation.java": "4e5c5df0a66bb401fbec72dd37ab2a291d56264656c470e7fdee85594ff0408a",
+    "src/main/java/com/accountingapisdk/validation/ViolationAggregator.java": "95139d58338a7d2af1fcf6e9945eac7f7f10e3533b69f93823cfaa460523dfbe",
+    "src/main/java/com/accountingapisdk/validation/exceptions/ValidationException.java": "2b0c5589e3d58101dd6c4d7c0378a7e03781a245d08bb136597564a28e18ca24",
+    "src/main/java/com/accountingapisdk/validation/validators/AbstractValidator.java": "73f09b44669085b177c857535d4e7651244266a6ea81e734d737458ca62844ef",
+    "src/main/java/com/accountingapisdk/validation/validators/ListValidator.java": "1d3ad4abb646b2e87eb1b32e3d1925d09ca1792ebf271c223f0ca6e0d347f0e7",
+    "src/main/java/com/accountingapisdk/validation/validators/NumericValidator.java": "1ce9e8f55359af2dc57fbe624bd343ceef558b40ec3f70fc86b7f5c854ca8001",
+    "src/main/java/com/accountingapisdk/validation/validators/StringValidator.java": "3197e540126fa784a6ba5333f7aa30871c5e8e2b3861c3e906c7c11db3894081",
+    "src/main/java/com/accountingapisdk/validation/validators/Validator.java": "337b2b2f56d326ecd1a9d44e491e9591604965e9a6e7e391c3070a2f7bb9e79b",
+    "src/main/java/com/accountingapisdk/validation/validators/modelValidators/AbstractModelValidator.java": "167eacb756257cfff922efeabb68d64ff3b3a61654d1c90b7169680b526490d0"
+  }
+}

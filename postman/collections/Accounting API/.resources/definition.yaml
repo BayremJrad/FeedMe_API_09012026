@@ -1,0 +1,2 @@
+$kind: collection
+description: Minimal HTTP API surface for a basic accounting application. Intentionally small and practical.

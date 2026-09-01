@@ -1,0 +1,30 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/customers"
+  method: GET
+  headers:
+    Accept: application/json
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": "cust_001",
+          "name": "Acme Bakery",
+          "email": "owner@acmebakery.test"
+        },
+        {
+          "id": "cust_002",
+          "name": "Northwind Cafe",
+          "email": "accounts@northwind.test"
+        }
+      ]
+order: 1000

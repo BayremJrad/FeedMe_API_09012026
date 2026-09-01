@@ -1,0 +1,12 @@
+owner: "57761290"
+team: "36637215"
+lastUpdatedBy: "57761290"
+lastRevision: 1787916404000
+name: Accounting API Base
+color: null
+values:
+  - key: baseUrl
+    value: https://d5b19ccb-e1a5-4b6e-bdec-b94a6a21a4f9.mock.pstmn.io
+    enabled: true
+createdAt: 2026-08-28T11:26:36.000Z
+updatedAt: 2026-08-28T11:26:44.000Z
